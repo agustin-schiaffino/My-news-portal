@@ -1,0 +1,43 @@
+body {
+    background-color: #f4f4f4;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    background-color: #14765f;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.date-time {
+    background-color: burlywood;
+    font-size: 13px;
+}
+
+.portal-name {
+    background-color: crimson;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.nav-bar {
+    display: none;
+    background-color: darkblue;
+}
+
+header a {
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
+    padding: 0px 10px;
+}
