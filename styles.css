@@ -1,8 +1,22 @@
+
 body {
     background-color: #f4f4f4;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 15px;
     line-height: 1.5;
+}
+
+img{
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+
 }
 
 ul {
@@ -13,7 +27,7 @@ ul {
     background-color: #14765f;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
 }
@@ -41,3 +55,4 @@ header a {
     text-transform: uppercase;
     padding: 0px 10px;
 }
+
