@@ -4,90 +4,79 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>My News Portal</title>
 		<link rel="stylesheet" href="normalize.css">
 		<link rel="stylesheet" href="styles.css">
+		<title>The Sentinel</title>
 	</head>
 	<body>
 		<header>
-			<div class="container">
-				<div class="date-time">
-					<time>Viernes, 1 de Octubre de 2021</time>
-				</div>
-				<div class="portal-name">
+			<div>
+				<div class="portal-info">
 					<h1>The Sentinel</h1>
 				</div>
-				<nav>
-					<ul class="nav-bar">
-						<li><a href="">World</a></li>
-						<li><a href="">Politics</a></li>
-						<li><a href="">Sports</a></li>
-						<li><a href="">Economy</a></li>
-						<li><a href="">Health</a></li>
-						<li><a href="">Science & Tech</a></li>
-					</ul>
+				<div class="portal-info">
+					<time>Friday, October 1 - 2021</time>
+				</div>
+				<div class="hamb-menu">
+					<img id="hamb" src="imgs\menu-hamburgesa.png" alt="Hamburguer Menu">
+				</div>
+				<nav class="navbar">
+					<a href="#">World</a>
+					<a href="#">Politics</a>
+					<a href="#">Sports</a>
+					<a href="#">Economy</a>
+					<a href="#">Health</a>
+					<a href="#">Science & Tech</a>
 				</nav>
 			</div>
 		</header>
 		<main>
-			<section class="main-container">
-				<h2>Showcase</h2>
-				<div class="main-news">
-					<h2><a href="">The EU nations struggling with low vaccination rates</a></h2>
-					<img src="https://cdn.cnn.com/cnnnext/dam/assets/210928044159-01-vaccine-clinic-bulgaria-large-tease.jpg" alt="vaccine clinic">
-					<p>
-						They have all the Covid-19 vaccines they need, but these EU nations are still miles behind their neighbors
-					</p>
-				</div>
-				<div class="main-news">
-					<h2><a href="">Brazil legend Pele leaves hospital after surgery to remove tumor</a></h2>
-					<img src="https://cdn.cnn.com/cnnnext/dam/assets/211001092051-pele-exlarge-169.jpg" alt="Pele">
-					<p>
-						Brazil football legend Pele was discharged from hospital on Thursday following surgery to remove a tumor from
-						his colon.
-					</p>
-				</div>
-				<div class="main-news">
-					<h2><a href="">More destruction feared in La Palma as lava pours from new volcano vent</a></h2>
-					<img
-						src="https://www.reuters.com/resizer/Wvu3rmIw62mEs_xS4bi8wcnVqzc=/960x0/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/IGFGTS2PIRJ2VF7ZFSBUHJFNWU.jpg" alt="La Palma Volcano">
-					<p>
-						Lava flowed from a newly opened crack in the Cumbre Vieja volcano on Spain's La Palma on Friday, carving a
-						different path from previous flows and raising fears of more destruction, while fine ash forced islanders to
-						don masks and goggles
-					</p>
-				</div>
-				<div class="main-news">
-					<h2><a href="">More than 50 countries missing Covid vaccine target</a></h2>
-					<img
-						src="https://ichef.bbci.co.uk/news/820/cpsprodpb/14DD2/production/_120785458_capetown_masks_gettyimages-1277840037.jpg" alt="two girls">
-					<p>
-						Most of those not making the target of 10% of people fully vaccinated by the end of September are in Africa.
-					</p>
-				</div>
-			</section>
-			<section class="left-container">
-				<h3>Most Watched</h3>
-				<div class="left-news">
-					<h3><a href="">Britain's royal family love James Bond. There's a few reasons for that</a></h3>
-					<img src="https://cdn.cnn.com/cnnnext/dam/assets/210930142114-01-royal-newsletter-1001-medium-tease.jpg" alt="Britain's royal family">
-				</div>
-				<div class="left-news">
-					<h3><a href="">'Maid' Netflix series based on Stephanie Land's life shows reality of poverty and abuse</a></h3>
-					<img src="https://cdn.cnn.com/cnnnext/dam/assets/210928201054-01-maid-netflix-medium-tease.jpg" alt="'Maid' Netflix series">
-				</div>
-			</section>
-			<section class="right-container">
-				<h3>Take a break</h3>
-				<div class="right-news">
-					<h3><a href="">Scarlett Johansson and Disney agree to end lawsuit</a></h3>
-					<img src="https://cdn.cnn.com/cnnnext/dam/assets/210701123110-01-black-widow-movie-small-11.jpg" alt="Scarlett Johansson">
-				</div>
-				<div class="right-news">
-					<h3><a href="">Lenny Kravitz makes coffee and our morning</a></h3>
-					<img src="https://cdn.cnn.com/cnnnext/dam/assets/190827050448-03-vms-2019-style-small-11.jpg" alt="Lenny Kravitz">
-				</div>
-			</section>
+			<article class="news">
+				<section class="main-news">
+					<div class="container">
+						<h2><a href="#">The EU nations struggling with low vaccination rates</a></h2>
+						<img src="https://cdn.cnn.com/cnnnext/dam/assets/210928044159-01-vaccine-clinic-bulgaria-large-tease.jpg">
+						<p>
+							They have all the Covid-19 vaccines they need, but these EU nations are still miles behind their neighbors
+						</p>
+					</div>
+					<div class="container">
+						<h2><a href="#">Brazil legend Pele leaves hospital after surgery to remove tumor</a></h2>
+						<img src="https://cdn.cnn.com/cnnnext/dam/assets/211001092051-pele-exlarge-169.jpg">
+						<p>
+							Brazil football legend Pele was discharged from hospital on Thursday following surgery to remove a tumor from his colon.
+						</p>
+					</div>
+					<div class="container">
+						<h2><a href="#">More destruction feared in La Palma as lava pours from new volcano vent</a></h2>
+						<img src="https://www.reuters.com/resizer/Wvu3rmIw62mEs_xS4bi8wcnVqzc=/960x0/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/IGFGTS2PIRJ2VF7ZFSBUHJFNWU.jpg" alt="La Palma Volcano">
+						<p>
+							Lava flowed from a newly opened crack in the Cumbre Vieja volcano on Spain's La Palma on Friday, carving a different path from previous flows and raising fears of more destruction, while fine ash forced islanders to don masks and goggles.
+						</p>
+					</div>
+				</section>
+				<section class="left-news">
+					<div class="container">
+						<h2><a href="#">Britain's royal family love James Bond. There's a few reasons for that</a></h2>
+						<img src="https://cdn.cnn.com/cnnnext/dam/assets/210930142114-01-royal-newsletter-1001-medium-tease.jpg">
+					</div>
+					<div class="container">
+						<h2><a href="#">'Maid' Netflix series based on Stephanie Land's life shows reality of poverty and abuse</a></h2>
+						<img src="https://cdn.cnn.com/cnnnext/dam/assets/210928201054-01-maid-netflix-medium-tease.jpg">
+					</div>
+				</section>
+				<section class="right-news">
+					<div class="container">
+						<img src="https://images.outbrainimg.com/transform/v3/eyJpdSI6ImQ3ZGVkOGZiYWM2NjJkZTlkOGRlOWY2NDVjNDQzZTgyODM2ZTAxODNlZmU3YWZmODVjZTM3NzM2ODEyMDRlNDciLCJ3IjozNzAsImgiOjIyMCwiZCI6MS41LCJjcyI6MCwiZiI6NH0.webp">
+					</div>
+					<div class="container">
+						<img src="https://images.outbrainimg.com/transform/v3/eyJpdSI6ImYzMjAyMDExMWIzOGU5YzdlZWJiMThlODc1NjFmZGRkYTQ5ZDY2YzBlOTUyYTUwZTQ1MzdmZDQzNWEzODdkNzQiLCJ3IjozNzAsImgiOjIyMCwiZCI6MS41LCJjcyI6MCwiZiI6NH0.webp">
+					</div>
+					<div class="container">
+						<img src="https://images.outbrainimg.com/transform/v3/eyJpdSI6IjhmY2RkYzIyZDYxN2NjYjBlMjdiNzk5YTU0NzA5YmZjNjdhMTBhZmEzOTM2NjIwNDNkYmY5NWE5MzhhNmVmYTYiLCJ3IjozNzAsImgiOjIyMCwiZCI6MS41LCJjcyI6MCwiZiI6NH0.webp" alt="Solution for Dark Spots">
+					</div>
+				</section>
+			</article>
 		</main>
 		<footer>
 			<div class="newsletter-container">
