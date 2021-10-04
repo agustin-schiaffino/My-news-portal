@@ -124,7 +124,40 @@ footer a:hover {
     color: crimson;
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
+    .news {
+        display: flex;
+        width: 100%;
+        flex-direction: row
+    }
+
+    .main-news {
+        display: flex;
+        width: 70%;
+        order: 2;
+        flex-direction: column;
+        padding: 0px 15px;
+        border-right: #112031 solid 1px;;
+
+    }
+
+    .left-news {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30%;
+        order: 1;
+        padding: 0px 5px;
+        border-right: #112031 solid 1px;
+    }
+
+    .publicity {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 1024px){
     .navbar{
         display: flex;
         justify-content: space-around;
