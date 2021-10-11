@@ -133,17 +133,18 @@ footer a:hover {
 @media screen and (min-width: 768px) {
     .news {
         display: flex;
-        width: 100%;
-        flex-direction: row
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
     .main-news {
         display: flex;
-        width: 70%;
+        flex-basis: 54%;
         order: 2;
         flex-direction: column;
+        flex: 1;
         padding: 0px 15px;
-        border-right: #112031 solid 1px;;
+        border-right: #112031 solid 1px;
 
     }
 
@@ -151,18 +152,19 @@ footer a:hover {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        width: 30%;
+        flex-basis: 40%;
         order: 1;
         padding: 0px 5px;
         border-right: #112031 solid 1px;
     }
 
     .publicity {
-        display: none;
+        flex-basis: 100%;
+        order: 3;
     }
 }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1024px) {
     .navbar{
         display: flex;
         justify-content: space-around;
@@ -186,8 +188,8 @@ footer a:hover {
 
     .news{
         display: flex;
-        width: 100%;
         flex-direction: row;
+        width: 100%;
     }
 
     .main-news{
@@ -195,6 +197,7 @@ footer a:hover {
         width: 50%;
         order: 2;
         flex-direction: column;
+        flex: 2;
         padding: 0px 15px;
         border-right: #112031 solid 1px;
     }
@@ -204,7 +207,8 @@ footer a:hover {
         flex-direction: column;
         justify-content: space-around;
         order: 3;
-        width: 25%;
+        flex: 1;
+        width: 20%;
         padding: 0px 5px;
     }
 
@@ -212,8 +216,9 @@ footer a:hover {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        width: 25%;
+        width: 20%;
         order: 1;
+        flex: 1;
         padding: 0px 5px;
         border-right: #112031 solid 1px;
     }
