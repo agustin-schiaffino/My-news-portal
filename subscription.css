@@ -13,10 +13,6 @@ h3 {
     font-size: 20px;
 }
 
-span {
-    display: none;
-}
-
 .group-column input {
     width: 100%;
     height: 40px;
@@ -26,6 +22,46 @@ span {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+#name-error {
+    display: none;
+}
+
+#email-error {
+    display: none;
+}
+
+#password-error {
+    display: none;
+}
+
+#repeat-password-error {
+    display: none;
+}
+
+#age-error {
+    display: none;
+}
+
+#phonenumb-error {
+    display: none;
+}
+
+#adress-error {
+    display: none;
+}
+
+#city-error {
+    display: none;
+}
+
+#postal-code-error {
+    display: none;
+}
+
+#dni-error {
+    display: none;
 }
 
 .group-column {
