@@ -110,5 +110,26 @@ window.onload=function() {
     function focusPhoneNumb() {
         phoneNumbError.style.display="none";
     }
+
+    // Adress validation
+    var adress = document.getElementById("adress");
+    var adressError = document.getElementById("adress-error");
+    adress.addEventListener("blur", validateAdress);
+    function validateAdress(e) {
+        var letters = /[a-zA-Z]/g;
+        var numbers = /[0-9]/g;
+        var testAdress = e.target.value;
+        if (testAdress.match(letters) && testAdress.match(numbers) && testAdress.indexOf(" ")>0 && testAdress.length>=5) {
+            return adress.style.border="2px solid green" 
+        }
+        else {
+            return adressError.style.display="block", adressError.style.fontSize="11px", adress.style.border="2px solid red"
+        }  
+    }
+    adress.addEventListener("focus", focusAdress);
+    function focusAdress() {
+        adressError.style.display="none";
+        
+    }
 }
     
