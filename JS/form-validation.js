@@ -129,7 +129,24 @@ window.onload=function() {
     adress.addEventListener("focus", focusAdress);
     function focusAdress() {
         adressError.style.display="none";
-        
+    }
+
+    //City validation
+    var city = document.getElementById("City");
+    var cityError = document.getElementById("city-error")
+    city.addEventListener("blur", validateCity);
+    function validateCity(e) {
+        var testCity = e.target.value;
+        if (testCity.length>=3) {
+            return city.style.border="2px solid green";   
+        }
+        else {
+            return cityError.style.display="block", cityError.style.fontSize="11px", city.style.border="2px solid red";
+        }  
+    }
+    city.addEventListener("focus", focusCity);
+    function focusCity() {
+        cityError.style.display="none";
     }
 }
     
