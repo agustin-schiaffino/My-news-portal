@@ -148,5 +148,23 @@ window.onload=function() {
     function focusCity() {
         cityError.style.display="none";
     }
+
+    // Postal Code validation
+    var postCode = document.querySelector("#postal-code");
+    var postCodeError = document.querySelector("#postal-code-error");
+    postCode.addEventListener("blur", validatePostCode);
+    function validatePostCode(e) {
+        var testPostCode = e.target.value;
+        if (testPostCode.length>=3) {
+            return postCode.style.border="2px solid green";
+        }
+        else {
+            return postCodeError.style.display="block", postCodeError.style.fontSize="11px", postCode.style.border="2px solid red"
+        }
+    }
+    postCode.addEventListener("focus", focusPostCode);
+    function focusPostCode() {
+        postCodeError.style.display="none";
+    }
 }
     
