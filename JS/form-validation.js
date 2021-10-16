@@ -92,5 +92,23 @@ window.onload=function() {
     function focusAge() {
         ageError.style.display="none";
     }
+
+    // Phone Number validation
+    var phoneNumb = document.getElementById("phone-number");
+    var phoneNumbError = document.getElementById("phonenumb-error");
+    phoneNumb.addEventListener("blur", validatePhoneNumb);
+    function validatePhoneNumb(e) {
+        var testPhoneNumb = e.target.value;
+        if (testPhoneNumb.length>=7 && testPhoneNumb.indexOf(" ")<0 && testPhoneNumb.indexOf("-")<0 && testPhoneNumb.indexOf("(")<0 && testPhoneNumb.indexOf(")")<0) {
+            return phoneNumb.style.border="2px solid green"
+        }
+        else {
+            return phoneNumbError.style.display="block", phoneNumbError.style.fontSize="11px", phoneNumb.style.border="2px solid red"
+        }
+    }
+    phoneNumb.addEventListener("focus", focusPhoneNumb);
+    function focusPhoneNumb() {
+        phoneNumbError.style.display="none";
+    }
 }
     
