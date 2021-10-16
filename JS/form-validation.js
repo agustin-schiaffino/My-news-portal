@@ -43,5 +43,27 @@ window.onload=function() {
         emailError.style.display="none"
         
     }
+
+    // Password validation
+    var password = document.getElementById("password");
+    var passwordError = document.getElementById("password-error");
+    password.addEventListener("blur", validatePassword);
+    function validatePassword(e) {
+        var letters = /[a-zA-Z]/g;
+        var numbers = /[0-9]/g;
+        var testPwd = e.target.value;
+        if (testPwd.match(letters) && testPwd.match(numbers) && testPwd.length>=8) {
+            password.style.border="2px solid green"
+        }
+        else {
+            passwordError.style.display="block";
+            passwordError.style.fontSize="11px";
+            password.style.border="2px solid red"
+        }
+    }
+    password.addEventListener("focus", focusPassword);
+    function focusPassword() {
+        passwordError.style.display="none"
+    }
 }
     
