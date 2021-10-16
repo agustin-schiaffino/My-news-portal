@@ -65,5 +65,24 @@ window.onload=function() {
     function focusPassword() {
         passwordError.style.display="none"
     }
+
+    //Repeat password validation
+    var rePassword = document.getElementById("repeat-password");
+    var rePasswordError = document.getElementById("repeat-password-error");
+    rePassword.addEventListener("blur", validateRePassword);
+    function validateRePassword() {
+        if (rePassword.value === password.value) {
+            rePassword.style.border="2px solid green"
+        }
+        else {
+            rePasswordError.style.display="block";
+            rePasswordError.style.fontSize="11px"
+            rePassword.style.border="2px solid red"
+        }
+    }
+    rePassword.addEventListener("focus", focusRePassword);
+    function focusRePassword() {
+        rePasswordError.style.display="none";
+    }
 }
     
