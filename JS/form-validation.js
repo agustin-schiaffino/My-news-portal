@@ -6,14 +6,11 @@ window.onload=function() {
     function validateName(e) {
         var testing = e.target.value;
         if (testing="" || testing.length<6 || testing.indexOf(" ")<=0) {
-            fullNameError.style.display="block";
-            fullName.style.border="2px solid red"
-            fullNameError.style.fontSize="11px"
+           return fullNameError.style.display="block", fullNameError.style.fontSize="11px", fullName.style.border="2px solid red"
         }
         else {
-            fullName.style.border="2px solid green"
+           return fullName.style.border="2px solid green";
         }
-       
     }
     fullName.addEventListener("focus", focusValidation)
     function focusValidation() {
@@ -29,13 +26,10 @@ window.onload=function() {
         var dot = email.value.indexOf(".")
         var extention = email.value.indexOf("com")
         if (atSign>0 && dot>0 && extention>0) {
-            email.style.border="2px solid green"
+            return email.style.border="2px solid green";
         }
         else {
-            emailError.style.display="block"
-            emailError.style.fontSize="11px"
-            email.style.border="2px solid red"
-            
+            return emailError.style.display="block", emailError.style.fontSize="11px", email.style.border="2px solid red";    
         }
     }
     email.addEventListener("focus", focusEmail)
@@ -53,12 +47,10 @@ window.onload=function() {
         var numbers = /[0-9]/g;
         var testPwd = e.target.value;
         if (testPwd.match(letters) && testPwd.match(numbers) && testPwd.length>=8) {
-            password.style.border="2px solid green"
+            return password.style.border="2px solid green"
         }
         else {
-            passwordError.style.display="block";
-            passwordError.style.fontSize="11px";
-            password.style.border="2px solid red"
+            return passwordError.style.display="block", passwordError.style.fontSize="11px", password.style.border="2px solid red";  
         }
     }
     password.addEventListener("focus", focusPassword);
@@ -72,12 +64,10 @@ window.onload=function() {
     rePassword.addEventListener("blur", validateRePassword);
     function validateRePassword() {
         if (rePassword.value === password.value) {
-            rePassword.style.border="2px solid green"
+            return rePassword.style.border="2px solid green"
         }
         else {
-            rePasswordError.style.display="block";
-            rePasswordError.style.fontSize="11px"
-            rePassword.style.border="2px solid red"
+            return rePasswordError.style.display="block", rePasswordError.style.fontSize="11px", rePassword.style.border="2px solid red";  
         }
     }
     rePassword.addEventListener("focus", focusRePassword);
