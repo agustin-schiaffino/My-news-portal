@@ -166,5 +166,23 @@ window.onload=function() {
     function focusPostCode() {
         postCodeError.style.display="none";
     }
+
+    // DNI Number validation
+    var dniNumb = document.getElementById("dni-number");
+    var dniError = document.getElementById("dni-error");
+    dniNumb.addEventListener("blur", validateDni);
+    function validateDni(e) {
+        var testDni = e.target.value;
+        if (testDni.length>6 && testDni.length<9) {
+            return dniNumb.style.border="2px solid green";
+        }
+        else {
+            return dniError.style.display="block", dniError.style.fontSize="11px", dniNumb.style.border="2px solid red";
+        }
+    }
+    dniNumb.addEventListener("focus", focusDni);
+    function focusDni() {
+        dniError.style.display="none";
+    }
 }
     
