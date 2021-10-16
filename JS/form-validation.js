@@ -74,5 +74,23 @@ window.onload=function() {
     function focusRePassword() {
         rePasswordError.style.display="none";
     }
+
+    // Age validation
+    var age = document.querySelector("#age");
+    var ageError = document.querySelector("#age-error");
+    age.addEventListener("blur", validateAge);
+    function validateAge(e) {
+        var testAge = e.target.value;
+        if (testAge>=18 && testAge % 1 === 0) {
+            return age.style.border="2px solid green"
+        }
+        else {
+            return ageError.style.display="block", ageError.style.fontSize="11px", age.style.border="2px solid red"
+        }
+    }
+    age.addEventListener("focus", focusAge);
+    function focusAge() {
+        ageError.style.display="none";
+    }
 }
     
