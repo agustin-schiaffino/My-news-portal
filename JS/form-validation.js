@@ -184,5 +184,15 @@ window.onload=function() {
     function focusDni() {
         dniError.style.display="none";
     }
+
+    //Send button
+
+    // Bonus
+    var itemBonus = document.getElementById("name");
+    var hiddenBox = document.getElementById("bonus");
+    itemBonus.addEventListener("keydown", testBonus);
+    function testBonus() {
+        return hiddenBox.innerHTML="Hello"+" "+itemBonus.value;
+    }
 }
     
