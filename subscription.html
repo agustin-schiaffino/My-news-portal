@@ -38,66 +38,68 @@
         <h3>Subscription Form</h3>
       </div>
       <form id="formulary" action="#">
-        <div class="column-one">
-          <div class="group-column">
-            <label for="name">Full Name:</label>
-            <input type="text" name="name" id="name" placeholder="Insert Full Name" autocomplete="off">
-            <span id="name-error">The required format must have more than six letters and at least one space in
-              between</span>
+        <div class="form-container">
+          <div class="column-one">
+            <div class="group-column">
+              <label for="name">Full Name:</label>
+              <input type="text" name="name" id="name" placeholder="Insert Full Name" autocomplete="off">
+              <span id="name-error">The required format must have more than six letters and at least one space in
+                between</span>
+            </div>
+            <div class="group-column">
+              <label for="email">Email:</label>
+              <input type="email" name="email" id="email" placeholder="Insert Email" autocomplete="off">
+              <span id="email-error">Must have a valid email format</span>
+            </div>
+            <div class="group-column">
+              <label for="password">Password:</label>
+              <input type="password" name="password" id="password" placeholder="Insert Password" autocomplete="off">
+              <span id="password-error">Must have at least eight characters including letters and numbers</span>
+            </div>
+            <div class="group-column">
+              <label for="password">Repeat Password:</label>
+              <input type="password" name="password" id="repeat-password" placeholder="Repeat Password" autocomplete="off">
+              <span id="repeat-password-error">Must repeat previous password</span>
+            </div>
+            <div class="group-column">
+              <label for="Age">Age:</label>
+              <input type="number" name="age" id="age" placeholder="Insert Age" autocomplete="off">
+              <span id="age-error">Must be an integer number greater than or iqual to eighteen</span>
+            </div>
           </div>
-          <div class="group-column">
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" placeholder="Insert Email" autocomplete="off">
-            <span id="email-error">Must have a valid email format</span>
-          </div>
-          <div class="group-column">
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password" placeholder="Insert Password" autocomplete="off">
-            <span id="password-error">Must have at least eight characters including letters and numbers</span>
-          </div>
-          <div class="group-column">
-            <label for="password">Repeat Password:</label>
-            <input type="password" name="password" id="repeat-password" placeholder="Repeat Password" autocomplete="off">
-            <span id="repeat-password-error">Must repeat previous password</span>
-          </div>
-          <div class="group-column">
-            <label for="Age">Age:</label>
-            <input type="number" name="age" id="age" placeholder="Insert Age" autocomplete="off">
-            <span id="age-error">Must be an integer number greater than or iqual to eighteen</span>
+          <div class="column-two">
+            <div class="group-column">
+              <label for="phone number">Phone Number:</label>
+              <input type="tel" name="phonenumber" id="phone-number" placeholder="Insert Phone Number" autocomplete="off">
+              <span id="phonenumb-error">Must have at least seven digits without spaces, hyphens or parentheses</span>
+            </div>
+            <div class="group-column">
+              <label for="adress">Adress:</label>
+              <input type="text" name="adress" id="adress" placeholder="Insert Adress" autocomplete="off">
+              <span id="adress-error">Must have at least five characters, with letters, numbers and a space in between.
+              </span>
+            </div>
+            <div class="group-column">
+              <label for="city">City:</label>
+              <input type="text" name="city" id="City" placeholder="Insert City" autocomplete="off">
+              <span id="city-error">Must have at least three characters</span>
+            </div>
+            <div class="group-column">
+              <label for="postalcode">Postal Code:</label>
+              <input type="number" name="postalcode" id="postal-code" placeholder="Insert Postal Code" autocomplete="off">
+              <span id="postal-code-error">Must have at least three characters</span>
+            </div>
+            <div class="group-column">
+              <label for="docnumber">DNI Number:</label>
+              <input type="number" name="DNI" id="dni-number" placeholder="Insert DNI Number" autocomplete="off">
+              <span id="dni-error">Must be a seven or eight digits number</span>
+            </div>
           </div>
         </div>
-        <div class="column-two">
-          <div class="group-column">
-            <label for="phone number">Phone Number:</label>
-            <input type="tel" name="phonenumber" id="phone-number" placeholder="Insert Phone Number" autocomplete="off">
-            <span id="phonenumb-error">Must have at least seven digits without spaces, hyphens or parentheses</span>
+          <div class="form-button">
+            <button type="submit" id="send-button">Send</button>
           </div>
-          <div class="group-column">
-            <label for="adress">Adress:</label>
-            <input type="text" name="adress" id="adress" placeholder="Insert Adress" autocomplete="off">
-            <span id="adress-error">Must have at least five characters, with letters, numbers and a space in between.
-            </span>
-          </div>
-          <div class="group-column">
-            <label for="city">City:</label>
-            <input type="text" name="city" id="City" placeholder="Insert City" autocomplete="off">
-            <span id="city-error">Must have at least three characters</span>
-          </div>
-          <div class="group-column">
-            <label for="postalcode">Postal Code:</label>
-            <input type="number" name="postalcode" id="postal-code" placeholder="Insert Postal Code" autocomplete="off">
-            <span id="postal-code-error">Must have at least three characters</span>
-          </div>
-          <div class="group-column">
-            <label for="docnumber">DNI Number:</label>
-            <input type="number" name="DNI" id="dni-number" placeholder="Insert DNI Number" autocomplete="off">
-            <span id="dni-error">Must be a seven or eight digits number</span>
-          </div>
-        </div>
       </form>
-        <div class="form-button">
-          <button type="submit" id="send-button">Send</button>
-        </div>
     </main>
     <footer>
       <div class="footer-container">

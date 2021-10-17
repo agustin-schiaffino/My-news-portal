@@ -20,8 +20,7 @@ h3 {
 
 #formulary {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
 }
 
 #name-error {
@@ -71,32 +70,63 @@ h3 {
 }
 
 .column-one {
-    width: 40%;
+    width: 100%;
 }
 
 .column-two {
-    width: 40%;
+    width: 100%;
 }
 
 .form-button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 10px 50px;
+    padding-left: 5px;
 }
 
 #send-button {
     display: block;
     border: none;
-    width: 20%;
+    width: 50%;
     background-color: #112031;
     color: #fff;
     height: 40px;
     font-weight: bold;
-    margin: 20px 0px;
     border-radius: 2px;
     cursor: pointer;
 }
 
 #send-button:hover {
     background-color:mediumseagreen;
+}
+
+@media screen and (min-width: 768px) {
+    .form-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .column-one {
+        width: 40%;
+    }
+
+    .column-two {
+        width: 40%;
+    }
+
+    #send-button {
+        display: block;
+        border: none;
+        width: 20%;
+        background-color: #112031;
+        color: #fff;
+        height: 40px;
+        font-weight: bold;
+        margin: 20px 0px;
+        border-radius: 2px;
+        cursor: pointer;
+    }
+
 }
