@@ -4,19 +4,18 @@ window.onload=function() {
     var fullNameError = document.getElementById("name-error");
     fullName.addEventListener("blur", validateName);
     function validateName(e) {
-        var testing = e.target.value;
-        if (testing="" || testing.length<6 || testing.indexOf(" ")<=0) {
+        if (fullName.value.length>6 && fullName.value.indexOf(" ")>0) {
+           return (
+               fullName.style.border="2px solid green",
+               true
+           )
+        }
+        else {
            return (
                fullNameError.style.display="block",
                fullNameError.style.fontSize="11px",
                fullName.style.border="2px solid red",
-               true
-           )   
-        }
-        else {
-           return (
-            fullName.style.border="2px solid green",
-            false
+               false
            )
         }
     }
@@ -29,7 +28,7 @@ window.onload=function() {
     var email = document.querySelector("#email");
     var emailError = document.querySelector("#email-error")
     email.addEventListener("blur", validateEmail);
-    function validateEmail() {
+    function validateEmail(e) {
         var atSign = email.value.indexOf("@")
         var dot = email.value.indexOf(".")
         var extention = email.value.indexOf("com")
@@ -60,8 +59,7 @@ window.onload=function() {
     function validatePassword(e) {
         var letters = /[a-zA-Z]/g;
         var numbers = /[0-9]/g;
-        var testPwd = e.target.value;
-        if (testPwd.match(letters) && testPwd.match(numbers) && testPwd.length>=8) {
+        if (password.value.match(letters) && password.value.match(numbers) && password.value.length>=8) {
             return (
                 password.style.border="2px solid green",
                 true
@@ -88,8 +86,7 @@ window.onload=function() {
     function validateRePassword(e) {
         var letters1 = /[a-zA-Z]/g;
         var numbers1 = /[0-9]/g;
-        var testRePwd = e.target.value
-        if (rePassword.value === password.value && testRePwd.match(letters1) && testRePwd.match(numbers1) && testRePwd.length>=8) {
+        if (rePassword.value === password.value && rePassword.value.match(letters1) && rePassword.value.match(numbers1) && rePassword.value.length>=8) {
             return (
                 rePassword.style.border="2px solid green",
                 true
@@ -110,12 +107,11 @@ window.onload=function() {
     }
 
     // Age validation
-    var age = document.querySelector("#age");
-    var ageError = document.querySelector("#age-error");
+    var age = document.getElementById("age");
+    var ageError = document.getElementById("age-error");
     age.addEventListener("blur", validateAge);
     function validateAge(e) {
-        var testAge = e.target.value;
-        if (testAge>=18 && testAge % 1 === 0) {
+        if (age.value>=18 && age.value % 1 === 0) {
             return (
                 age.style.border="2px solid green",
                 true
@@ -140,8 +136,7 @@ window.onload=function() {
     var phoneNumbError = document.getElementById("phonenumb-error");
     phoneNumb.addEventListener("blur", validatePhoneNumb);
     function validatePhoneNumb(e) {
-        var testPhoneNumb = e.target.value;
-        if (testPhoneNumb.length>=7 && testPhoneNumb.indexOf(" ")<0 && testPhoneNumb.indexOf("-")<0 && testPhoneNumb.indexOf("(")<0 && testPhoneNumb.indexOf(")")<0) {
+        if (phoneNumb.value.length>=7 && phoneNumb.value.indexOf(" ")<0 && phoneNumb.value.indexOf("-")<0 && phoneNumb.value.indexOf("(")<0 && phoneNumb.value.indexOf(")")<0) {
             return (
                 phoneNumb.style.border="2px solid green",
                 true
@@ -168,8 +163,7 @@ window.onload=function() {
     function validateAdress(e) {
         var letters = /[a-zA-Z]/g;
         var numbers = /[0-9]/g;
-        var testAdress = e.target.value;
-        if (testAdress.match(letters) && testAdress.match(numbers) && testAdress.indexOf(" ")>0 && testAdress.length>=5) {
+        if (adress.value.match(letters) && adress.value.match(numbers) && adress.value.indexOf(" ")>0 && adress.value.length>=5) {
             return (
                 adress.style.border="2px solid green",
                 true
@@ -194,8 +188,7 @@ window.onload=function() {
     var cityError = document.getElementById("city-error")
     city.addEventListener("blur", validateCity);
     function validateCity(e) {
-        var testCity = e.target.value;
-        if (testCity.length>=3) {
+        if (city.value.length>=3) {
             return (
                 city.style.border="2px solid green",
                 true
@@ -220,8 +213,7 @@ window.onload=function() {
     var postCodeError = document.querySelector("#postal-code-error");
     postCode.addEventListener("blur", validatePostCode);
     function validatePostCode(e) {
-        var testPostCode = e.target.value;
-        if (testPostCode.length>=3) {
+        if (postCode.value.length>=3) {
             return (
                 postCode.style.border="2px solid green",
                 true
@@ -246,8 +238,7 @@ window.onload=function() {
     var dniError = document.getElementById("dni-error");
     dniNumb.addEventListener("blur", validateDni);
     function validateDni(e) {
-        var testDni = e.target.value;
-        if (testDni.length>6 && testDni.length<9) {
+        if (dniNumb.value.length>6 && dniNumb.value.length<9) {
             return (
                 dniNumb.style.border="2px solid green",
                 true
@@ -268,6 +259,58 @@ window.onload=function() {
     }
 
     //Send button
+    var testButton = document.getElementById("send-button");
+    var form = document.getElementById("formulary");
+    testButton.addEventListener("click", validateForm);
+    function validateForm(e) {
+        e.preventDefault();
+        validateName(e);
+        validateEmail(e);
+        validatePassword(e);
+        validateRePassword(e);
+        validateAge(e);
+        validatePhoneNumb(e);
+        validateAdress(e);
+        validateCity(e);
+        validatePostCode(e);
+        validateDni(e);
+
+        if (validateName(e) && validateEmail(e) && validatePassword(e) && validateRePassword(e) && validateAge(e) && validatePhoneNumb(e) && validateAdress(e) && validateCity(e) & validatePostCode(e) && validateDni(e)) {
+            alert(
+                "Full name:" +fullName.value+
+                "Email:" +email.value+
+                "Password:" +password.value+
+                "Age:" +age.value+
+                "Phone Number:" +phoneNumb.value+
+                "Address:" +adress.value+
+                "City:" +city.value+
+                "Postal Code:" +postCode.value+
+                "DNI Number:" +dniNumb.value
+            )
+            form.reset()
+            
+        }
+        else {
+            alert("Check for possible errors")
+        }
+
+        /*if (validateName(e) && validateEmail(e) && validatePassword(e) && validaterePassword(e) && validateAge(e) && validatePhoneNumb(e) && validateAdress(e) && validateCity(e) && validatePostCode(e) && validateDni(e)) {
+            alert(
+                "Full name:" +fullName.value,
+                "Email:" +email.value,
+                "Password:" +password.value,
+                "Age:" +age.value,
+                "Phone Number:" +phoneNumb.value,
+                "Address:" +adress.value,
+                "City:" +city.value,
+                "Postal Code:" +postCode.value,
+                "DNI Number:" +dniNumb.value
+            );
+        }
+        else {
+            alert("Check for possible errors")
+        }*/
+    }
 
     // Bonus
     var itemBonus = document.getElementById("name");
