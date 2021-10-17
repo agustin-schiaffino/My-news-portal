@@ -6,15 +6,23 @@ window.onload=function() {
     function validateName(e) {
         var testing = e.target.value;
         if (testing="" || testing.length<6 || testing.indexOf(" ")<=0) {
-           return fullNameError.style.display="block", fullNameError.style.fontSize="11px", fullName.style.border="2px solid red"
+           return (
+               fullNameError.style.display="block",
+               fullNameError.style.fontSize="11px",
+               fullName.style.border="2px solid red",
+               true
+           )   
         }
         else {
-           return fullName.style.border="2px solid green";
+           return (
+            fullName.style.border="2px solid green",
+            false
+           )
         }
     }
     fullName.addEventListener("focus", focusValidation)
     function focusValidation() {
-        fullNameError.style.display="none" 
+        fullNameError.style.display="none";
     }
 
     //Email Validation
@@ -26,16 +34,23 @@ window.onload=function() {
         var dot = email.value.indexOf(".")
         var extention = email.value.indexOf("com")
         if (atSign>0 && dot>0 && extention>0) {
-            return email.style.border="2px solid green";
+            return (
+                email.style.border="2px solid green",
+                true
+            ) 
         }
         else {
-            return emailError.style.display="block", emailError.style.fontSize="11px", email.style.border="2px solid red";    
+            return (
+                emailError.style.display="block",
+                emailError.style.fontSize="11px",
+                email.style.border="2px solid red",
+                false
+            )
         }
     }
     email.addEventListener("focus", focusEmail)
     function focusEmail() {
-        emailError.style.display="none"
-        
+        emailError.style.display="none";  
     }
 
     // Password validation
@@ -47,27 +62,46 @@ window.onload=function() {
         var numbers = /[0-9]/g;
         var testPwd = e.target.value;
         if (testPwd.match(letters) && testPwd.match(numbers) && testPwd.length>=8) {
-            return password.style.border="2px solid green"
+            return (
+                password.style.border="2px solid green",
+                true
+            )
         }
         else {
-            return passwordError.style.display="block", passwordError.style.fontSize="11px", password.style.border="2px solid red";  
+            return (
+                passwordError.style.display="block",
+                passwordError.style.fontSize="11px",
+                password.style.border="2px solid red",
+                false
+            )
         }
     }
     password.addEventListener("focus", focusPassword);
     function focusPassword() {
-        passwordError.style.display="none"
+        passwordError.style.display="none";
     }
 
     //Repeat password validation
     var rePassword = document.getElementById("repeat-password");
     var rePasswordError = document.getElementById("repeat-password-error");
     rePassword.addEventListener("blur", validateRePassword);
-    function validateRePassword() {
-        if (rePassword.value === password.value) {
-            return rePassword.style.border="2px solid green"
+    function validateRePassword(e) {
+        var letters1 = /[a-zA-Z]/g;
+        var numbers1 = /[0-9]/g;
+        var testRePwd = e.target.value
+        if (rePassword.value === password.value && testRePwd.match(letters1) && testRePwd.match(numbers1) && testRePwd.length>=8) {
+            return (
+                rePassword.style.border="2px solid green",
+                true
+            )
         }
         else {
-            return rePasswordError.style.display="block", rePasswordError.style.fontSize="11px", rePassword.style.border="2px solid red";  
+            return (
+                rePasswordError.style.display="block",
+                rePasswordError.style.fontSize="11px",
+                rePassword.style.border="2px solid red",
+                false
+            )
         }
     }
     rePassword.addEventListener("focus", focusRePassword);
@@ -82,10 +116,18 @@ window.onload=function() {
     function validateAge(e) {
         var testAge = e.target.value;
         if (testAge>=18 && testAge % 1 === 0) {
-            return age.style.border="2px solid green"
+            return (
+                age.style.border="2px solid green",
+                true
+            )
         }
         else {
-            return ageError.style.display="block", ageError.style.fontSize="11px", age.style.border="2px solid red"
+            return (
+                ageError.style.display="block",
+                ageError.style.fontSize="11px",
+                age.style.border="2px solid red",
+                false
+            )
         }
     }
     age.addEventListener("focus", focusAge);
@@ -100,10 +142,18 @@ window.onload=function() {
     function validatePhoneNumb(e) {
         var testPhoneNumb = e.target.value;
         if (testPhoneNumb.length>=7 && testPhoneNumb.indexOf(" ")<0 && testPhoneNumb.indexOf("-")<0 && testPhoneNumb.indexOf("(")<0 && testPhoneNumb.indexOf(")")<0) {
-            return phoneNumb.style.border="2px solid green"
+            return (
+                phoneNumb.style.border="2px solid green",
+                true
+            )
         }
         else {
-            return phoneNumbError.style.display="block", phoneNumbError.style.fontSize="11px", phoneNumb.style.border="2px solid red"
+            return (
+                phoneNumbError.style.display="block",
+                phoneNumbError.style.fontSize="11px",
+                phoneNumb.style.border="2px solid red",
+                false
+            )
         }
     }
     phoneNumb.addEventListener("focus", focusPhoneNumb);
@@ -120,11 +170,19 @@ window.onload=function() {
         var numbers = /[0-9]/g;
         var testAdress = e.target.value;
         if (testAdress.match(letters) && testAdress.match(numbers) && testAdress.indexOf(" ")>0 && testAdress.length>=5) {
-            return adress.style.border="2px solid green" 
+            return (
+                adress.style.border="2px solid green",
+                true
+            )
         }
         else {
-            return adressError.style.display="block", adressError.style.fontSize="11px", adress.style.border="2px solid red"
-        }  
+            return (
+                adressError.style.display="block",
+                adressError.style.fontSize="11px",
+                adress.style.border="2px solid red",
+                false
+            )
+        }
     }
     adress.addEventListener("focus", focusAdress);
     function focusAdress() {
@@ -138,11 +196,19 @@ window.onload=function() {
     function validateCity(e) {
         var testCity = e.target.value;
         if (testCity.length>=3) {
-            return city.style.border="2px solid green";   
+            return (
+                city.style.border="2px solid green",
+                true
+            )
         }
         else {
-            return cityError.style.display="block", cityError.style.fontSize="11px", city.style.border="2px solid red";
-        }  
+            return (
+                cityError.style.display="block",
+                cityError.style.fontSize="11px",
+                city.style.border="2px solid red",
+                false
+            )
+        }
     }
     city.addEventListener("focus", focusCity);
     function focusCity() {
@@ -156,10 +222,18 @@ window.onload=function() {
     function validatePostCode(e) {
         var testPostCode = e.target.value;
         if (testPostCode.length>=3) {
-            return postCode.style.border="2px solid green";
+            return (
+                postCode.style.border="2px solid green",
+                true
+            )
         }
         else {
-            return postCodeError.style.display="block", postCodeError.style.fontSize="11px", postCode.style.border="2px solid red"
+            return (
+                postCodeError.style.display="block",
+                postCodeError.style.fontSize="11px",
+                postCode.style.border="2px solid red",
+                false
+            )
         }
     }
     postCode.addEventListener("focus", focusPostCode);
@@ -174,10 +248,18 @@ window.onload=function() {
     function validateDni(e) {
         var testDni = e.target.value;
         if (testDni.length>6 && testDni.length<9) {
-            return dniNumb.style.border="2px solid green";
+            return (
+                dniNumb.style.border="2px solid green",
+                true
+            )
         }
         else {
-            return dniError.style.display="block", dniError.style.fontSize="11px", dniNumb.style.border="2px solid red";
+            return (
+                dniError.style.display="block",
+                dniError.style.fontSize="11px",
+                dniNumb.style.border="2px solid red",
+                false
+            )
         }
     }
     dniNumb.addEventListener("focus", focusDni);
@@ -189,10 +271,9 @@ window.onload=function() {
 
     // Bonus
     var itemBonus = document.getElementById("name");
-    var hiddenBox = document.getElementById("bonus");
-    itemBonus.addEventListener("keydown", testBonus);
-    function testBonus() {
-        return hiddenBox.innerHTML="Hello"+" "+itemBonus.value;
+    itemBonus.addEventListener("keyup", testBonus);
+    function testBonus(e) {
+        document.getElementById("bonus").innerHTML= e.target.value ? "Hello "+fullName.value+"" : "";
     }
 }
     
