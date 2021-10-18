@@ -259,9 +259,8 @@ window.onload=function() {
     }
 
     //Send button
-    var testButton = document.getElementById("send-button");
     var form = document.getElementById("formulary");
-    testButton.addEventListener("click", validateForm);
+    form.addEventListener("submit", validateForm);
     function validateForm(e) {
         e.preventDefault();
         validateName(e);
