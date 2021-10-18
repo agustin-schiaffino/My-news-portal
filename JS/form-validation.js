@@ -276,40 +276,23 @@ window.onload=function() {
         validateDni(e);
 
         if (validateName(e) && validateEmail(e) && validatePassword(e) && validateRePassword(e) && validateAge(e) && validatePhoneNumb(e) && validateAdress(e) && validateCity(e) & validatePostCode(e) && validateDni(e)) {
-            alert(
-                "Full name:" +fullName.value+
-                "Email:" +email.value+
-                "Password:" +password.value+
-                "Age:" +age.value+
-                "Phone Number:" +phoneNumb.value+
-                "Address:" +adress.value+
-                "City:" +city.value+
-                "Postal Code:" +postCode.value+
-                "DNI Number:" +dniNumb.value
-            )
-            form.reset()
+            alert("Full Name: "+fullName.value+"\n E-mail: "+email.value+"\n Password: "+password.value+"\n Repeat Password: "+rePassword.value+"\n Age: "+age.value+"\n Phone Number: "+phoneNumb.value+"\n Adress: "+adress.value+"\n City: "+city.value+"\n Post Number: "+postCode.value+"\n Document Number: "+dniNumb.value)
+            form.reset(),
+            fullName.style.border="2px solid transparent";
+            email.style.border="2px solid transparent";
+            password.style.border="2px solid transparent";
+            rePassword.style.border="2px solid transparent";
+            age.style.border="2px solid transparent";
+            phoneNumb.style.border="2px solid transparent";
+            adress.style.border="2px solid transparent";
+            city.style.border="2px solid transparent";
+            postCode.style.border="2px solid transparent";
+            dniNumb.style.border="2px solid transparent";
             
         }
         else {
-            alert("Check for possible errors")
+            alert("Check fields for possible errors")
         }
-
-        /*if (validateName(e) && validateEmail(e) && validatePassword(e) && validaterePassword(e) && validateAge(e) && validatePhoneNumb(e) && validateAdress(e) && validateCity(e) && validatePostCode(e) && validateDni(e)) {
-            alert(
-                "Full name:" +fullName.value,
-                "Email:" +email.value,
-                "Password:" +password.value,
-                "Age:" +age.value,
-                "Phone Number:" +phoneNumb.value,
-                "Address:" +adress.value,
-                "City:" +city.value,
-                "Postal Code:" +postCode.value,
-                "DNI Number:" +dniNumb.value
-            );
-        }
-        else {
-            alert("Check for possible errors")
-        }*/
     }
 
     // Bonus
@@ -318,5 +301,4 @@ window.onload=function() {
     function testBonus(e) {
         document.getElementById("bonus").innerHTML= e.target.value ? "Hello "+fullName.value+"" : "";
     }
-}
-    
+} 
