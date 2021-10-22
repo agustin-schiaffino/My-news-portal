@@ -300,4 +300,20 @@ window.onload=function() {
     function testBonus(e) {
         document.getElementById("bonus").innerHTML= e.target.value ? "Hello "+fullName.value+"" : "";
     }
+
+    // Weekly Problem 06
+    var url = "http://curso-dev-2021.herokuapp.com/newsletter?name=fullName.value&email=email.value&password=password.value&age=age.value&phonenumber=phoneNumb.value&address=adress.value&city=city.value&postalcode=postCode.value&dni=dniNumb.value"
+
+    fetch(url)
+        .then(function(res) {
+            console.log(res);
+            return res.json();
+            
+        })
+        .then(function(data){
+            console.log(data);
+        })
+        .catch(function(error) {
+            console.log(error);
+        })
 } 
