@@ -302,18 +302,34 @@ window.onload=function() {
     }
 
     // Weekly Problem 06
-    var url = "http://curso-dev-2021.herokuapp.com/newsletter?name=fullName.value&email=email.value&password=password.value&age=age.value&phonenumber=phoneNumb.value&address=adress.value&city=city.value&postalcode=postCode.value&dni=dniNumb.value"
-
+    var url = "http://curso-dev-2021.herokuapp.com/newsletter?name=Agustin+Schiaffino&email=schiaffinoagustin95@gmail.com&password=1234567q&age=26&phone_number=3412067695&address=Moreno+4589&city=Rosario&postal_code=2000&dni=39052945"
+    
     fetch(url)
         .then(function(res) {
-            console.log(res);
             return res.json();
-            
         })
         .then(function(data){
-            console.log(data);
+            successMessage(data);
         })
-        .catch(function(error) {
-            console.log(error);
+        .catch(function(err) {
+            failureMessage(err);
         })
+
+    function successMessage() {
+        let sendButton = document.getElementById("send-button");
+        sendButton.addEventListener("click", modalMessage);
+        function modalMessage() {
+            var modalContainer = document.querySelector(".hidden");
+            modalContainer.style.visibility="visible";
+            let modalTittle = document.getElementById("modal-tittle");
+            modalTittle.innerHTML = "Welcome to our Newsletter"
+            let modalText = document.getElementById("modal-content")
+            modalText.innerHTML= "Full Name: "+fullName.value+"\n E-mail: "+email.value+"\n Password: "+password.value+"\n Repeat Password: "+rePassword.value+"\n Age: "+age.value+"\n Phone Number: "+phoneNumb.value+"\n Adress: "+adress.value+"\n City: "+city.value+"\n Post Number: "+postCode.value+"\n Document Number: "+dniNumb.value
+            let closeButton = document.getElementById("modal-button");
+            closeButton.addEventListener("click", closeModal);
+            function closeModal() {
+                modalContainer.style.visibility="hidden"
+            }
+        }
+    }
 } 
