@@ -330,6 +330,7 @@ window.onload=function() {
             document.querySelector(".modal-container").style.border="3px solid green";
             let modalText = document.getElementById("modal-content")
             modalText.innerHTML= "Full Name: "+fullName.value+"\n E-mail: "+email.value+"\n Password: "+password.value+"\n Repeat Password: "+rePassword.value+"\n Age: "+age.value+"\n Phone Number: "+phoneNumb.value+"\n Adress: "+adress.value+"\n City: "+city.value+"\n Post Number: "+postCode.value+"\n Document Number: "+dniNumb.value;
+            form.reset();
         }
 
         function failureMessage() {
