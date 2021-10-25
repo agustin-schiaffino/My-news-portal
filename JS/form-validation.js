@@ -276,7 +276,7 @@ window.onload=function() {
 
         if (validateName(e) && validateEmail(e) && validatePassword(e) && validateRePassword(e) && validateAge(e) && validatePhoneNumb(e) && validateAdress(e) && validateCity(e) && validatePostCode(e) && validateDni(e)) {
             alert("Full Name: "+fullName.value+"\n E-mail: "+email.value+"\n Password: "+password.value+"\n Repeat Password: "+rePassword.value+"\n Age: "+age.value+"\n Phone Number: "+phoneNumb.value+"\n Adress: "+adress.value+"\n City: "+city.value+"\n Post Number: "+postCode.value+"\n Document Number: "+dniNumb.value)
-            form.reset(),
+            //form.reset(),
             fullName.style.border="2px solid transparent";
             email.style.border="2px solid transparent";
             password.style.border="2px solid transparent";
@@ -302,17 +302,15 @@ window.onload=function() {
     }
 
     // Weekly Problem 06
-    var url = `http://curso-dev-2021.herokuapp.com/newsletter?name=${fullName.value}&email=${email.value}&password=${password.value}&repeatpassword=${rePassword.value}&age=${age.value}&cellphone=${phoneNumb.value}&address=${adress.value}&city=${city.value}&postalcode=${postCode.value}&dni=${dniNumb.value}`
-    
+
     var sendForm = document.getElementById("send-button");
     sendForm.addEventListener("click", modalMessage);
     function modalMessage() {
-        fetch(url)
+        fetch(`http://curso-dev-2021.herokuapp.com/newsletter?name=${fullName.value}&email=${email.value}&password=${password.value}&repeatpassword=${rePassword.value}&age=${age.value}&cellphone=${phoneNumb.value}&address=${adress.value}&city=${city.value}&postalcode=${postCode.value}&dni=${dniNumb.value}`)
             .then(function(res) {
                 return res.json();
             })
             .then(function(data){
-                //console.log(data)
                 successMessage(data);
                 localStorage.setItem("user_data", JSON.stringify(data))
             })
@@ -328,11 +326,11 @@ window.onload=function() {
             modalText.innerHTML= "Full Name: "+fullName.value+"\n E-mail: "+email.value+"\n Password: "+password.value+"\n Repeat Password: "+rePassword.value+"\n Age: "+age.value+"\n Phone Number: "+phoneNumb.value+"\n Adress: "+adress.value+"\n City: "+city.value+"\n Post Number: "+postCode.value+"\n Document Number: "+dniNumb.value;
         }
 
-        function failureMessage(err) {
+        function failureMessage() {
             document.querySelector(".hidden").style.visibility="visible";
             document.getElementById("modal-tittle").innerHTML="Subscription rejected";
             let modalText = document.getElementById("modal-content");
-            modalText.innerHTML= err;
+            modalText.innerHTML= "Please check the fields for possible errors";
         }
 
         let closeButton = document.getElementById("modal-button");
@@ -340,5 +338,19 @@ window.onload=function() {
             function closeModal() {
                 document.querySelector(".hidden").style.visibility="hidden";
             }
+
+        const userData = JSON.parse(localStorage.getItem("user_data"))
+        if (userData !==null) {
+            fullName.value = userData.name;
+            email.value = userData.email;
+            password.value = userData.password;
+            rePassword.value = userData.repeatpassword;
+            age.value = userData.age;
+            phoneNumb.value = userData.cellphone;
+            adress.value = userData.address;
+            city.value = userData.city;
+            postCode.value = userData.postalcode;
+            dniNumb.value = userData.dni;
+        }
     
 }
