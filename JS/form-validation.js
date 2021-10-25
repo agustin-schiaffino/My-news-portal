@@ -307,7 +307,7 @@ window.onload=function() {
     sendForm.addEventListener("click", modalMessage);
     function modalMessage() {
         if (validateName() && validateEmail() && validatePassword() && validateRePassword() && validateAge() && validatePhoneNumb() && validateAdress() && validateCity() && validatePostCode() && validateDni()) {
-            fetch(`http://curso-dev-2021.herokuapp.com/newsletter?name=${fullName.value}&email=${email.value}&password=${password.value}&repeatpassword=${rePassword.value}&age=${age.value}&cellphone=${phoneNumb.value}&address=${adress.value}&city=${city.value}&postalcode=${postCode.value}&dni=${dniNumb.value}`)
+            fetch(`https://curso-dev-2021.herokuapp.com/newsletter?name=${fullName.value}&email=${email.value}&password=${password.value}&repeatpassword=${rePassword.value}&age=${age.value}&cellphone=${phoneNumb.value}&address=${adress.value}&city=${city.value}&postalcode=${postCode.value}&dni=${dniNumb.value}`)
             .then(function(res) {
                 return res.json();
             })
