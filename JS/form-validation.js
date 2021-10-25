@@ -275,7 +275,7 @@ window.onload=function() {
         validateDni(e);
 
         if (validateName(e) && validateEmail(e) && validatePassword(e) && validateRePassword(e) && validateAge(e) && validatePhoneNumb(e) && validateAdress(e) && validateCity(e) && validatePostCode(e) && validateDni(e)) {
-            alert("Full Name: "+fullName.value+"\n E-mail: "+email.value+"\n Password: "+password.value+"\n Repeat Password: "+rePassword.value+"\n Age: "+age.value+"\n Phone Number: "+phoneNumb.value+"\n Adress: "+adress.value+"\n City: "+city.value+"\n Post Number: "+postCode.value+"\n Document Number: "+dniNumb.value)
+            //alert("Full Name: "+fullName.value+"\n E-mail: "+email.value+"\n Password: "+password.value+"\n Repeat Password: "+rePassword.value+"\n Age: "+age.value+"\n Phone Number: "+phoneNumb.value+"\n Adress: "+adress.value+"\n City: "+city.value+"\n Post Number: "+postCode.value+"\n Document Number: "+dniNumb.value)
             //form.reset(),
             fullName.style.border="2px solid transparent";
             email.style.border="2px solid transparent";
@@ -290,7 +290,7 @@ window.onload=function() {
             
         }
         else {
-            alert("Check fields for possible errors")
+            //alert("Check fields for possible errors")
         }
     }
 
@@ -306,7 +306,8 @@ window.onload=function() {
     var sendForm = document.getElementById("send-button");
     sendForm.addEventListener("click", modalMessage);
     function modalMessage() {
-        fetch(`http://curso-dev-2021.herokuapp.com/newsletter?name=${fullName.value}&email=${email.value}&password=${password.value}&repeatpassword=${rePassword.value}&age=${age.value}&cellphone=${phoneNumb.value}&address=${adress.value}&city=${city.value}&postalcode=${postCode.value}&dni=${dniNumb.value}`)
+        if (validateName() && validateEmail() && validatePassword() && validateRePassword() && validateAge() && validatePhoneNumb() && validateAdress() && validateCity() && validatePostCode() && validateDni()) {
+            fetch(`http://curso-dev-2021.herokuapp.com/newsletter?name=${fullName.value}&email=${email.value}&password=${password.value}&repeatpassword=${rePassword.value}&age=${age.value}&cellphone=${phoneNumb.value}&address=${adress.value}&city=${city.value}&postalcode=${postCode.value}&dni=${dniNumb.value}`)
             .then(function(res) {
                 return res.json();
             })
@@ -317,11 +318,16 @@ window.onload=function() {
             .catch(function(err) {
                 failureMessage(err);
             })
+
+        }   else {
+                failureMessage();
+        }
     } 
 
         function successMessage() {
             document.querySelector(".hidden").style.visibility="visible";
             document.getElementById("modal-tittle").innerHTML="Welcome to our Newsletter";
+            document.querySelector(".modal-container").style.border="3px solid green";
             let modalText = document.getElementById("modal-content")
             modalText.innerHTML= "Full Name: "+fullName.value+"\n E-mail: "+email.value+"\n Password: "+password.value+"\n Repeat Password: "+rePassword.value+"\n Age: "+age.value+"\n Phone Number: "+phoneNumb.value+"\n Adress: "+adress.value+"\n City: "+city.value+"\n Post Number: "+postCode.value+"\n Document Number: "+dniNumb.value;
         }
@@ -329,6 +335,7 @@ window.onload=function() {
         function failureMessage() {
             document.querySelector(".hidden").style.visibility="visible";
             document.getElementById("modal-tittle").innerHTML="Subscription rejected";
+            document.querySelector(".modal-container").style.border="3px solid red"
             let modalText = document.getElementById("modal-content");
             modalText.innerHTML= "Please check the fields for possible errors";
         }
@@ -352,5 +359,4 @@ window.onload=function() {
             postCode.value = userData.postalcode;
             dniNumb.value = userData.dni;
         }
-    
 }
