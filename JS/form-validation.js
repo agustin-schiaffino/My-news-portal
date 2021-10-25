@@ -1,9 +1,9 @@
 window.onload=function() {
     //Full name validation
-    var fullName = document.getElementById("name");
+    var fullName = document.querySelector("#name");
     var fullNameError = document.getElementById("name-error");
     fullName.addEventListener("blur", validateName);
-    function validateName(e) {
+    function validateName() {
         if (fullName.value.length>6 && fullName.value.indexOf(" ")>0) {
            return (
                fullName.style.border="2px solid green",
@@ -28,7 +28,7 @@ window.onload=function() {
     var email = document.querySelector("#email");
     var emailError = document.querySelector("#email-error")
     email.addEventListener("blur", validateEmail);
-    function validateEmail(e) {
+    function validateEmail() {
         var atSign = email.value.indexOf("@")
         var dot = email.value.indexOf(".")
         var extention = email.value.indexOf("com")
@@ -53,10 +53,10 @@ window.onload=function() {
     }
 
     // Password validation
-    var password = document.getElementById("password");
+    var password = document.querySelector("#password");
     var passwordError = document.getElementById("password-error");
     password.addEventListener("blur", validatePassword);
-    function validatePassword(e) {
+    function validatePassword() {
         var letters = /[a-zA-Z]/g;
         var numbers = /[0-9]/g;
         if (password.value.match(letters) && password.value.match(numbers) && password.value.length>=8) {
@@ -80,10 +80,10 @@ window.onload=function() {
     }
 
     //Repeat password validation
-    var rePassword = document.getElementById("repeat-password");
+    var rePassword = document.querySelector("#repeat-password");
     var rePasswordError = document.getElementById("repeat-password-error");
     rePassword.addEventListener("blur", validateRePassword);
-    function validateRePassword(e) {
+    function validateRePassword() {
         var letters1 = /[a-zA-Z]/g;
         var numbers1 = /[0-9]/g;
         if (rePassword.value === password.value && rePassword.value.match(letters1) && rePassword.value.match(numbers1) && rePassword.value.length>=8) {
@@ -107,10 +107,10 @@ window.onload=function() {
     }
 
     // Age validation
-    var age = document.getElementById("age");
+    var age = document.querySelector("#age");
     var ageError = document.getElementById("age-error");
     age.addEventListener("blur", validateAge);
-    function validateAge(e) {
+    function validateAge() {
         if (age.value>=18 && age.value % 1 === 0) {
             return (
                 age.style.border="2px solid green",
@@ -132,10 +132,10 @@ window.onload=function() {
     }
 
     // Phone Number validation
-    var phoneNumb = document.getElementById("phone-number");
+    var phoneNumb = document.querySelector("#phone-number");
     var phoneNumbError = document.getElementById("phonenumb-error");
     phoneNumb.addEventListener("blur", validatePhoneNumb);
-    function validatePhoneNumb(e) {
+    function validatePhoneNumb() {
         if (phoneNumb.value.length>=7 && phoneNumb.value.indexOf(" ")<0 && phoneNumb.value.indexOf("-")<0 && phoneNumb.value.indexOf("(")<0 && phoneNumb.value.indexOf(")")<0) {
             return (
                 phoneNumb.style.border="2px solid green",
@@ -157,10 +157,10 @@ window.onload=function() {
     }
 
     // Adress validation
-    var adress = document.getElementById("adress");
+    var adress = document.querySelector("#address");
     var adressError = document.getElementById("adress-error");
     adress.addEventListener("blur", validateAdress);
-    function validateAdress(e) {
+    function validateAdress() {
         var letters = /[a-zA-Z]/g;
         var numbers = /[0-9]/g;
         if (adress.value.match(letters) && adress.value.match(numbers) && adress.value.indexOf(" ")>0 && adress.value.length>=5) {
@@ -184,10 +184,10 @@ window.onload=function() {
     }
 
     //City validation
-    var city = document.getElementById("City");
+    var city = document.querySelector("#city");
     var cityError = document.getElementById("city-error")
     city.addEventListener("blur", validateCity);
-    function validateCity(e) {
+    function validateCity() {
         if (city.value.length>=3) {
             return (
                 city.style.border="2px solid green",
@@ -212,7 +212,7 @@ window.onload=function() {
     var postCode = document.querySelector("#postal-code");
     var postCodeError = document.querySelector("#postal-code-error");
     postCode.addEventListener("blur", validatePostCode);
-    function validatePostCode(e) {
+    function validatePostCode() {
         if (postCode.value.length>=3) {
             return (
                 postCode.style.border="2px solid green",
@@ -234,10 +234,10 @@ window.onload=function() {
     }
 
     // DNI Number validation
-    var dniNumb = document.getElementById("dni-number");
+    var dniNumb = document.querySelector("#dni-number");
     var dniError = document.getElementById("dni-error");
     dniNumb.addEventListener("blur", validateDni);
-    function validateDni(e) {
+    function validateDni() {
         if (dniNumb.value.length>6 && dniNumb.value.length<9) {
             return (
                 dniNumb.style.border="2px solid green",
@@ -259,7 +259,7 @@ window.onload=function() {
     }
 
     //Send button
-    var form = document.getElementById("formulary");
+    var form = document.querySelector("#formulary");
     form.addEventListener("submit", validateForm);
     function validateForm(e) {
         e.preventDefault();
@@ -274,7 +274,7 @@ window.onload=function() {
         validatePostCode(e);
         validateDni(e);
 
-        if (validateName(e) && validateEmail(e) && validatePassword(e) && validateRePassword(e) && validateAge(e) && validatePhoneNumb(e) && validateAdress(e) && validateCity(e) & validatePostCode(e) && validateDni(e)) {
+        if (validateName(e) && validateEmail(e) && validatePassword(e) && validateRePassword(e) && validateAge(e) && validatePhoneNumb(e) && validateAdress(e) && validateCity(e) && validatePostCode(e) && validateDni(e)) {
             alert("Full Name: "+fullName.value+"\n E-mail: "+email.value+"\n Password: "+password.value+"\n Repeat Password: "+rePassword.value+"\n Age: "+age.value+"\n Phone Number: "+phoneNumb.value+"\n Adress: "+adress.value+"\n City: "+city.value+"\n Post Number: "+postCode.value+"\n Document Number: "+dniNumb.value)
             form.reset(),
             fullName.style.border="2px solid transparent";
@@ -302,34 +302,43 @@ window.onload=function() {
     }
 
     // Weekly Problem 06
-    var url = "http://curso-dev-2021.herokuapp.com/newsletter?name=Agustin+Schiaffino&email=schiaffinoagustin95@gmail.com&password=1234567q&age=26&phone_number=3412067695&address=Moreno+4589&city=Rosario&postal_code=2000&dni=39052945"
+    var url = `http://curso-dev-2021.herokuapp.com/newsletter?name=${fullName.value}&email=${email.value}&password=${password.value}&repeatpassword=${rePassword.value}&age=${age.value}&cellphone=${phoneNumb.value}&address=${adress.value}&city=${city.value}&postalcode=${postCode.value}&dni=${dniNumb.value}`
     
-    fetch(url)
-        .then(function(res) {
-            return res.json();
-        })
-        .then(function(data){
-            successMessage(data);
-        })
-        .catch(function(err) {
-            failureMessage(err);
-        })
+    var sendForm = document.getElementById("send-button");
+    sendForm.addEventListener("click", modalMessage);
+    function modalMessage() {
+        fetch(url)
+            .then(function(res) {
+                return res.json();
+            })
+            .then(function(data){
+                //console.log(data)
+                successMessage(data);
+                localStorage.setItem("user_data", JSON.stringify(data))
+            })
+            .catch(function(err) {
+                failureMessage(err);
+            })
+    } 
 
-    function successMessage() {
-        let sendButton = document.getElementById("send-button");
-        sendButton.addEventListener("click", modalMessage);
-        function modalMessage() {
-            var modalContainer = document.querySelector(".hidden");
-            modalContainer.style.visibility="visible";
-            let modalTittle = document.getElementById("modal-tittle");
-            modalTittle.innerHTML = "Welcome to our Newsletter"
+        function successMessage() {
+            document.querySelector(".hidden").style.visibility="visible";
+            document.getElementById("modal-tittle").innerHTML="Welcome to our Newsletter";
             let modalText = document.getElementById("modal-content")
-            modalText.innerHTML= "Full Name: "+fullName.value+"\n E-mail: "+email.value+"\n Password: "+password.value+"\n Repeat Password: "+rePassword.value+"\n Age: "+age.value+"\n Phone Number: "+phoneNumb.value+"\n Adress: "+adress.value+"\n City: "+city.value+"\n Post Number: "+postCode.value+"\n Document Number: "+dniNumb.value
-            let closeButton = document.getElementById("modal-button");
+            modalText.innerHTML= "Full Name: "+fullName.value+"\n E-mail: "+email.value+"\n Password: "+password.value+"\n Repeat Password: "+rePassword.value+"\n Age: "+age.value+"\n Phone Number: "+phoneNumb.value+"\n Adress: "+adress.value+"\n City: "+city.value+"\n Post Number: "+postCode.value+"\n Document Number: "+dniNumb.value;
+        }
+
+        function failureMessage(err) {
+            document.querySelector(".hidden").style.visibility="visible";
+            document.getElementById("modal-tittle").innerHTML="Subscription rejected";
+            let modalText = document.getElementById("modal-content");
+            modalText.innerHTML= err;
+        }
+
+        let closeButton = document.getElementById("modal-button");
             closeButton.addEventListener("click", closeModal);
             function closeModal() {
-                modalContainer.style.visibility="hidden"
+                document.querySelector(".hidden").style.visibility="hidden";
             }
-        }
-    }
-} 
+    
+}
