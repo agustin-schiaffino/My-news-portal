@@ -107,6 +107,47 @@ h3 {
     background-color:mediumseagreen;
 }
 
+.hidden {
+    visibility:hidden;
+}
+
+#my-modal {
+    position: fixed;
+    z-index: 1;
+    top: 25%;
+    height: 100%;
+    width:100%; 
+}
+
+.modal-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #112031;
+    border-radius: 5px;
+    width: 45%; 
+    height: 50%;
+
+}
+
+#modal-button {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    color: #112031;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#modal-content {
+    text-align: center;
+}
+
 @media screen and (min-width: 768px) {
     .form-container {
         display: flex;
@@ -170,6 +211,10 @@ h3 {
         color: #112031;
         font-weight: bold;
         cursor: pointer;
+    }
+
+    #modal-content {
+        text-align: center;
     }
     
 
